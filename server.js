@@ -11,21 +11,36 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Ensure DB exists in project root as weather.db
 const DB_PATH = path.join(__dirname, 'weather.db');
-if (!fs.existsSync(DB_PATH)) {
-  console.warn('⚠️ weather.db not found. Run the DB init command from README step 4.');
+
+// Initialize DB if missing
+function ensureDb() {
+  if (fs.existsSync(DB_PATH)) return;
+  console.log('🛠️ Creating weather.db from schema + seed...');
+  const db = new sqlite3.Database(DB_PATH);
+  const schema = fs.readFileSync(path.join(__dirname, 'db', 'schema.sql'), 'utf8');
+  const seed   = fs.readFileSync(path.join(__dirname, 'db', 'seed.sql'), 'utf8');
+
+  db.exec(schema, (err) => {
+    if (err) { console.error('Schema error:', err.message); process.exit(1); }
+    db.exec(seed, (err2) => {
+      if (err2) { console.error('Seed error:', err2.message); process.exit(1); }
+      db.close(() => console.log('✅ DB ready.'));
+    });
+  });
 }
+ensureDb();
+
 const db = new sqlite3.Database(DB_PATH);
 
-// Helper: safe params
+// Helper: pick query params
 function pick(query, keys) {
   const out = {};
   keys.forEach(k => { if (query[k] !== undefined) out[k] = query[k]; });
   return out;
 }
 
-// GET /api/cities → list distinct cities
+// GET /api/cities
 app.get('/api/cities', (req, res) => {
   db.all('SELECT DISTINCT city FROM weather_readings ORDER BY city', [], (err, rows) => {
     if (err) return res.status(500).json({ error: err.message });
@@ -33,11 +48,7 @@ app.get('/api/cities', (req, res) => {
   });
 });
 
-/* GET /api/weather
- * Params:
- *   city (optional) → filter by city
- *   from,to (optional ISO strings) → time range inclusive
- */
+// GET /api/weather
 app.get('/api/weather', (req, res) => {
   const { city, from, to } = pick(req.query, ['city','from','to']);
   const clauses = [];
@@ -54,9 +65,7 @@ app.get('/api/weather', (req, res) => {
   });
 });
 
-/* GET /api/summary
- * Returns daily averages per city within range
- */
+// GET /api/summary
 app.get('/api/summary', (req, res) => {
   const { city, from, to } = pick(req.query, ['city','from','to']);
   const clauses = [];
