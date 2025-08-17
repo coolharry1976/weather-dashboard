@@ -4,7 +4,8 @@
   "description": "Weather Trends Dashboard – Node/Express + Chart.js + SQLite",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "npm rebuild sqlite3 --build-from-source"
   },
   "engines": {
     "node": "20.x"
