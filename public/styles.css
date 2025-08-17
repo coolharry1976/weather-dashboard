@@ -1,0 +1,24 @@
+:root { --bg:#0f172a; --fg:#e2e8f0; --card:#111827; --muted:#94a3b8; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: system-ui, Arial, sans-serif; background: var(--bg); color: var(--fg); }
+
+header { padding: 1rem; border-bottom: 1px solid #1f2937; display:flex; flex-wrap:wrap; align-items:center; gap:1rem; }
+h1 { margin:0; font-size: 1.25rem; }
+.controls { display:flex; gap:1rem; align-items:end; }
+label { font-size: .9rem; color: var(--muted); display:flex; flex-direction:column; gap:.25rem; }
+select, input, button { padding:.5rem .6rem; border-radius:.5rem; border:1px solid #334155; background:#0b1220; color:var(--fg); }
+button { cursor:pointer; }
+
+main { display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:1rem; padding:1rem; }
+.card { background: var(--card); border:1px solid #1f2937; border-radius: .75rem; padding: 1rem; }
+
+/* Fixed-height chart wrapper prevents endless page growth */
+.chart { position: relative; height: 320px; }
+
+/* Canvas fills wrapper; !important stops Chart.js from forcing inline sizes */
+canvas { display:block; width:100% !important; height:100% !important; }
+
+#summary table { width:100%; border-collapse: collapse; font-size:.9rem; }
+#summary th, #summary td { padding:.5rem; border-bottom:1px solid #1f2937; text-align:left; }
+
+footer { padding:1rem; text-align:center; color: var(--muted); }

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weather Trends Dashboard</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Weather Trends Dashboard</h1>
+    <div class="controls">
+      <label>
+        City
+        <select id="city"></select>
+      </label>
+      <label>
+        From
+        <input id="from" type="date" />
+      </label>
+      <label>
+        To
+        <input id="to" type="date" />
+      </label>
+      <button id="apply">Apply</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Temperature (°C)</h2>
+      <div class="chart"><canvas id="tempChart"></canvas></div>
+    </section>
+
+    <section class="card">
+      <h2>Precipitation (mm)</h2>
+      <div class="chart"><canvas id="precipChart"></canvas></div>
+    </section>
+
+    <section class="card">
+      <h2>Daily Summary</h2>
+      <div id="summary"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built with JavaScript, Chart.js, and SQLite.</p>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
