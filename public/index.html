@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Weather Trends Dashboard</title>
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/styles.css?v=3" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
 <body>
@@ -15,6 +15,17 @@
         City
         <select id="city"></select>
       </label>
+
+      <label class="compare-toggle">
+        <input type="checkbox" id="compareChk" />
+        Compare
+      </label>
+
+      <label id="city2Wrap" class="hidden">
+        City 2
+        <select id="city2"></select>
+      </label>
+
       <label>
         From
         <input id="from" type="date" />
@@ -25,6 +36,8 @@
       </label>
       <button id="apply">Apply</button>
     </div>
+
+    <button id="themeToggle" class="toggle" aria-label="Toggle theme">🌙</button>
   </header>
 
   <main>
@@ -48,6 +61,6 @@
     <p>Built with JavaScript, Chart.js, and SQLite.</p>
   </footer>
 
-  <script src="/app.js"></script>
+  <script src="/app.js?v=3"></script>
 </body>
 </html>
