@@ -1,27 +1,29 @@
-# 📊 Weather Trends Dashboard
+# Weather Trends Dashboard
 
-Interactive dashboard built with **JavaScript, Chart.js, Node.js/Express, and SQLite**.  
-It visualizes weather data (temperature, precipitation, wind) in interactive charts and a daily summary table.
+An interactive data visualization dashboard that turns raw meteorological data into clear, actionable insights.
 
-## Features
-- Line chart for daily temperatures  
-- Bar chart for daily precipitation  
-- Daily summary table (avg temp, precip, wind)  
-- City & date filters  
+## 🌐 Live Demo
+[View the Dashboard on Render](https://weather-dashboard-5gq0.onrender.com)
 
-## Tech Stack
-- Frontend: HTML, CSS, JavaScript, Chart.js  
-- Backend: Node.js, Express  
-- Database: SQLite  
+## 📂 GitHub Repository
+[Weather Dashboard Source Code](https://github.com/coolharry1976/weather-dashboard)
 
-## Getting Started
-```bash
-git clone <your-repo-url>
-cd weather-dashboard
-npm install
+## 📸 Preview
+![Weather Dashboard Screenshot](screenshot.png)
 
-# Initialize the DB
-node -e "const fs=require('fs');const sqlite3=require('sqlite3').verbose();const db=new sqlite3.Database('weather.db');db.exec(fs.readFileSync('db/schema.sql','utf8'));db.exec(fs.readFileSync('db/seed.sql','utf8'));db.close();console.log('DB ready.');"
+## 🚀 Features
+- Interactive **temperature & precipitation charts** (Chart.js)
+- **City comparison** mode for side-by-side trend analysis
+- **Dark/Light theme toggle** for modern UX
+- **Custom date range filtering**
+- Powered by **Node.js, Express, and SQLite**
 
-# Run the server
-node server.js
+## 🛠️ Tech Stack
+- **Frontend:** HTML, CSS, JavaScript, Chart.js  
+- **Backend:** Node.js, Express  
+- **Database:** SQLite  
+- **Deployment:** Render
+
+---
+
+> **Interactive Weather Trends Dashboard** — Built with **Node.js, Express, SQLite, and Chart.js**, this project visualizes weather data in an interactive dashboard. Users can explore temperature and precipitation trends, toggle between dark/light themes, and compare multiple cities over custom date ranges.
