@@ -10,6 +10,7 @@ An interactive data visualization dashboard that turns raw meteorological data i
 
 ## 📸 Preview
 <img width="1920" height="891" alt="Image" src="https://github.com/user-attachments/assets/61f6aa04-6e08-4a21-9085-683d180b7c36" />
+<img width="1891" height="908" alt="Image" src="https://github.com/user-attachments/assets/3cd94eb0-4e0f-4b93-b0ab-d83b90c8d83a" />
 
 ## 🚀 Features
 - Interactive **temperature & precipitation charts** (Chart.js)
