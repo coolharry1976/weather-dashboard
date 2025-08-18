@@ -9,7 +9,7 @@ An interactive data visualization dashboard that turns raw meteorological data i
 [Weather Dashboard Source Code](https://github.com/coolharry1976/weather-dashboard)
 
 ## 📸 Preview
-![Weather Dashboard Screenshot](screenshot.png)
+<img width="1920" height="891" alt="Image" src="https://github.com/user-attachments/assets/61f6aa04-6e08-4a21-9085-683d180b7c36" />
 
 ## 🚀 Features
 - Interactive **temperature & precipitation charts** (Chart.js)
